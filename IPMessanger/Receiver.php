@@ -143,9 +143,10 @@ class IPMessanger_Receiver {
 					$lines	= explode("\n", $append);
 					$class	= 'IPMessanger_Plugin_Bot';
 					if (count($lines) > 0) {
-						$class	= 'IPMessanger_Plugin_' . $lines[0];
+						$tag	= $lines[0];
+						$class	= 'IPMessanger_Plugin_' . $tag;
 						// 対象のクラスファイルが存在しない場合は、ボットクラスに呼び出す
-						if (!file_exists(dirname(__FILE__) . '/' . $class . '.php')) {
+						if (!file_exists(dirname(__FILE__) . '/Plugin/' . $tag . '.php')) {
 							$class = 'IPMessanger_Plugin_Bot';
 						}
 					}
